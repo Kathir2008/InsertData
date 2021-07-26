@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        
+    <style>
+        tbody{
+            text-align: center;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+    <script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="color: beige;background-color: black;text-align: center;">Register your data</h1>
+    <form action="{% url 'base' %}" method="POST">{% csrf_token %}
+        <label>Email</label>
+        <input type="text" name="mail_id">
+        <label>Password</label>
+        <input type="password" name="pass_id">
+        <button type="submit">save</button>
+    </form><br>
+    <center><button id="hi" style="background-color: skyblue;">View all data</button></center><br><br><br>
+    <table id="Table_ID">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+            <tr>
+                <td>{{i.Email}}</td>
+                <td>{{i.Password}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+<script>
+    $(document).ready( function () {
+        $('#hi').click(function(){
+            $('#Table_ID').show();
+        $('#Table_ID').DataTable();
+        });
+
+    } );
+    </script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Insert Data</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h1 class="bg-dark text-white">Login</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <form class="form-group" action="{% url 'base' %}" method="POST" >{% csrf_token %}
+                    <label for="name">Name</label>
+                    <input class="form-control" type="text" name="name_data" id="name" required>
+                    <label for="age">age</label>
+                    <input class="form-control" type="number" name="age_data" id="age" required>
+                    <label for="mail">Email</label>
+                    <input class="form-control" type="email" name="mail_data" id="mail" required>
+                    <label for="password">Password</label>
+                    <input class="form-control" type="text" name="password_data" id="password" required> 
+                    <br>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+</body>
+</html>
